@@ -2,14 +2,69 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="stylesheet.css" type="text/css">
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
 
-<body>
-<h4>There are {{carsInLot}} cars in the lot currently.</h4>
-<h4>There are {{remainingSpots}} parking spots in the lot currently.</h4>
-</body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <body>
+            <div class="bg"></div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">{{title}}</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">East Remote</a>
+                        </li>
+                        <li>
+                            <a href="#">West Remote</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="lot-title text-center">{{parkingLot}}</p>
+                </div>
+            </div>
+            <div class="row vertical-align">
+                <div class="col-sm-6">
+                    <p class="number-label text-center">CARS PARKED</p>
+                    <p class="number text-center">{{carsInLot}}</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="number-label text-center">SPOTS LEFT</p>
+                    <p class="number text-center">{{remainingSpots}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer> -->
+    </body>
+
+
+
+
 
 </html>
