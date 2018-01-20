@@ -15,6 +15,9 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <!-- <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="/static/img/ucsc1.jpg">
+                    </a> -->
                     <a class="navbar-brand" href="#">{{title}}</a>
                 </div>
             </div>
@@ -22,17 +25,24 @@
         <div class="container-fluid">
             {% for lot in lots %}
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-2 col-sm-1"></div>
+                <div class="col-md-8 col-sm-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">{{lot.name}}</h3>
                         </div>
-                        <div class="panel-body">
-                            <p>Cars Parked: {{lot.carsInLot}}</p>
-                            <p>Cars Remaining: {{lot.remainingSpots}}</p>
-                            <p>Last Update: {{lot.lastUpdate}}</p>
-
+                        <div class="panel-body panel-padding"></div>
+                        <div class="panel-footer no-color">
+                            <div class="row">
+                                <div class="col-lg-4 col-xs-4 text-center">Parked</div>
+                                <div class="col-lg-4 col-xs-4 text-center">Remaining</div>
+                                <div class="col-lg-4 col-xs-4 text-center">Update</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot.carsInLot}}</div>
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot.remainingSpots}}</div>
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot.lastUpdate}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
