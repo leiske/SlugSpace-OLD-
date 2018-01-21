@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+    <meta http-equiv="refresh" content="5">
+
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">{{title}} - {{lot[0][1]}}</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-sm-1"></div>
+                <div class="col-md-8 col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{lot[0][1]}}</h3>
+                        </div>
+                        <div class="panel-body panel-padding"></div>
+                        <div class="panel-footer no-color">
+                            <div class="row">
+                                <div class="col-lg-4 col-xs-4 text-center">Parked</div>
+                                <div class="col-lg-4 col-xs-4 text-center">Total Capacity</div>
+                                <div class="col-lg-4 col-xs-4 text-center">Update</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot[0][3]}}</div>
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot[0][4]}}</div>
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot[0][6].strftime('%I:%M %p')}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if events is defined and events%}
+            <div class="row top-padding">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                Enter/Exit
+                            </th>
+                            <th>
+                                Capacity
+                            </th>
+                            <th>
+                                Timestamp
+                            </th>
+                        </tr>
+                        {% for event in events %}
+                        <tr>
+                            <td>
+                                {% if event[2] == 1 %}Entered{%else%}Exited{% endif %}
+                            </td>
+                            <td>
+                                {{event[3]}} / {{lot[0][4]}}
+                            </td>
+                            <td>
+                                {{event[4].strftime('%I:%M %p')}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {%endif%}
+        </div>
+    </body>
+</html>
