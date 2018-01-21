@@ -3,7 +3,7 @@ import MySQLdb
 import random
 import time
 
-db = MySQLdb.connect(host="localhost", user="root", passwd="", db="slugspace")
+db = MySQLdb.connect(host="35.202.25.179", user="root", passwd="cruzhacks", db="slugspace")
 cur = db.cursor()
 
 lots = [1, 2, 3]

@@ -1,14 +1,13 @@
 from flask import Flask, render_template, redirect
 from flaskext.mysql import MySQL
-import pusher
 
 app = Flask(__name__)
 mysql = MySQL()
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = 'cruzhacks'
 app.config['MYSQL_DATABASE_DB'] = 'slugspace'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = '35.202.25.179'
 
 mysql.init_app(app)
 conn = mysql.connect()
@@ -28,19 +27,19 @@ def moreInfo(lotId):
     return render_template('moreInfo.html',title="SlugSpace", lot=getParkingLot(lotId), events=getParkingEvents(lotId))
 
 def getParkingLots():
-    cursor.execute("SELECT * from PARKING_LOTS")
+    cursor.execute("SELECT * from parking_lots")
     data = cursor.fetchall()
     print(data)
     return data
 
 def getParkingLot(lotId):
-    cursor.execute("SELECT * from PARKING_LOTS where id="+lotId)
+    cursor.execute("SELECT * from parking_lots where id="+lotId)
     data = cursor.fetchall()
     return data
 
 
 def getParkingEvents(lotId):
-    cursor.execute("SELECT * from PARKING_EVENTS where lot_id="+lotId+" order by created_at desc limit 20")
+    cursor.execute("SELECT * from parking_events where lot_id="+lotId+" order by created_at desc limit 20")
     data = cursor.fetchall()
     return data
 
