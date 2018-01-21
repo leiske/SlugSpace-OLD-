@@ -1,0 +1,20 @@
+.panel-padding {
+    padding-bottom: 3em;      
+}
+
+.top-padding {
+    padding-top: 2em;
+}
+
+td, th {
+    text-align: center;
+    align-content: center;
+}
+
+.no-color {
+    background: white;
+}
+
+.image-panel {
+    align-content: center;
+}
