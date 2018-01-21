@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 4500
+# Version 4541
 #
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 5.7.21)
+# Host: localhost (MySQL 5.7.21)
 # Database: slugspace
-# Generation Time: 2018-01-20 22:17:49 +0000
+# Generation Time: 2018-01-21 00:39:19 +0000
 # ************************************************************
 
 
@@ -29,10 +29,23 @@ CREATE TABLE `parking_events` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `lot_id` int(11) NOT NULL,
   `entered` tinyint(1) NOT NULL,
+  `capacity` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `parking_events` WRITE;
+/*!40000 ALTER TABLE `parking_events` DISABLE KEYS */;
+
+INSERT INTO `parking_events` (`id`, `lot_id`, `entered`, `capacity`, `created_at`)
+VALUES
+	(1,1,1,17,'2018-01-20 13:55:27'),
+	(2,2,1,14,'2018-01-20 13:55:27'),
+	(3,2,0,15,'2018-01-20 13:55:27'),
+	(4,1,0,18,'2018-01-20 14:35:00');
+
+/*!40000 ALTER TABLE `parking_events` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table parking_lots
@@ -56,7 +69,9 @@ LOCK TABLES `parking_lots` WRITE;
 
 INSERT INTO `parking_lots` (`id`, `name`, `image_url`, `filled`, `capacity`, `created_at`, `updated_at`)
 VALUES
-	(1,'asdf','asdf',0,0,'2018-01-20 13:55:27','2018-01-20 13:55:27');
+	(1,'West','image_url',2,100,'2018-01-20 13:55:27','2018-01-20 13:55:27'),
+	(2,'East','image_url',5,200,'2018-01-20 13:55:27','2018-01-20 13:55:27'),
+	(3,'North','image_url',10,50,'2018-01-20 13:55:27','2018-01-20 13:55:27');
 
 /*!40000 ALTER TABLE `parking_lots` ENABLE KEYS */;
 UNLOCK TABLES;
