@@ -13,11 +13,19 @@ while True:
         rowLot = cur.execute("SELECT * FROM parking_lots WHERE id = " + str(lot))
         dataLot = cur.fetchone()
 
-        filled = dataLot[3] - 1
         rand = random.randint(0, 1)
-        cur.execute("INSERT INTO  parking_events VALUES (NULL, " + str(lot) + ",  " + str(rand) + ", " + str(filled) + ", NOW())")
+        if rand == 0:
+            rand = -1
 
-        cur.execute("UPDATE parking_lots SET filled = " + str(filled) + " WHERE id = " + str(lot))
+        if rand == -1 and dataLot[3] == 0:
+            rand = 1
+
+        filled = dataLot[3] + rand
+        cur.execute("INSERT INTO parking_events VALUES (NULL, " + str(lot) + ",  " + str(rand) + ", " + str(filled) + ", NOW())")
+
+        cur.execute("UPDATE parking_lots SET filled = " + str(filled) + ", updated_at = NOW() WHERE id = " + str(lot))
+        db.commit()
+
         print("Car " + ("left" if rand == 0 else "entered") + " " +  dataLot[1] + " parking lot")
 
     time.sleep(0.5)

@@ -13,7 +13,12 @@
 
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 
-    <meta http-equiv="refresh" content="5" >
+    <script>
+    setTimeout(function(){
+        window.location.reload(1);
+    }, 5000);
+    </script>
+
 
     <body>
         <nav class="navbar navbar-default">
@@ -47,7 +52,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-xs-4 text-center">{{lot[3]}}</div>
                                 <div class="col-lg-4 col-xs-4 text-center">{{lot[4]}}</div>
-                                <div class="col-lg-4 col-xs-4 text-center">{{lot[5].strftime('%I:%M %p')}}</div>
+                                <div class="col-lg-4 col-xs-4 text-center">{{lot[6].strftime('%I:%M %p')}}</div>
                             </div>
                         </div>
                     </div>

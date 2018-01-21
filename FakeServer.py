@@ -11,7 +11,9 @@ app.config['MYSQL_DATABASE_DB'] = 'slugspace'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 mysql.init_app(app)
-cursor = mysql.connect().cursor()
+conn = mysql.connect()
+conn.autocommit(True)
+cursor = conn.cursor()
 
 lots = {"1","2","3"}
 
@@ -28,6 +30,7 @@ def moreInfo(lotId):
 def getParkingLots():
     cursor.execute("SELECT * from PARKING_LOTS")
     data = cursor.fetchall()
+    print(data)
     return data
 
 def getParkingLot(lotId):
