@@ -1,5 +1,5 @@
 # Slug Space
-Slug Space is a project that was created for Cruz Hacks 2018, with the help of Colby Leske, Jesus Javy Serrano, Matthew Herbert, and Raul B. Lara Jr.
+Slug Space is a project that was created for Cruz Hacks 2018, with the help of Colby Leiske, Jesus Javy Serrano, Matthew Herbert, and Raul B. Lara Jr.
 
 #What does it do?
 The idea is to use multiple sensors to register the vehicles entering and exiting the remote lots of the Unverisity of California Santa Cruz. The sensors will send this information to the MySQL databases using Windows 10 IoT and multiple boards. The front-end was built using BootStrap. The back end was mostly Python. A prediction algorithm was made that keeps a running average and standard deviation of the counts measured at certain hours of the day. Using previous data, and other factors, such as weather, the spots available at certain times will be predicted to either be higher or lower than average. 
