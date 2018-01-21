@@ -20,6 +20,9 @@ while True:
         if rand == -1 and dataLot[3] == 0:
             rand = 1
 
+        if rand ==1 and dataLot[3] >= dataLot[4]:
+            rand = -1
+
         filled = dataLot[3] + rand
         cur.execute("INSERT INTO parking_events VALUES (NULL, " + str(lot) + ",  " + str(rand) + ", " + str(filled) + ", NOW())")
 

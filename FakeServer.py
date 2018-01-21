@@ -40,7 +40,7 @@ def getParkingLot(lotId):
 
 
 def getParkingEvents(lotId):
-    cursor.execute("SELECT * from PARKING_EVENTS where lot_id="+lotId+" order by created_at desc")
+    cursor.execute("SELECT * from PARKING_EVENTS where lot_id="+lotId+" order by created_at desc limit 20")
     data = cursor.fetchall()
     return data
 

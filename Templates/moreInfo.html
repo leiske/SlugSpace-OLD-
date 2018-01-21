@@ -13,13 +13,17 @@
 
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 
-    <meta http-equiv="refresh" content="5">
+    <script>
+        setTimeout(function () {
+            window.location.reload(1);
+        }, 5000);
+    </script>
 
     <body>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">{{title}} - {{lot[0][1]}}</a>
+                    <a class="navbar-brand" href="/">{{title}} - {{lot[0][1]}}</a>
                 </div>
             </div>
         </nav>
@@ -31,7 +35,9 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">{{lot[0][1]}}</h3>
                         </div>
-                        <div class="panel-body panel-padding"></div>
+                        <div class="panel-body panel-padding panel-image">
+                            <img src="/static/img/{{lot[0][0]}}.jpg" class="img-responsive center-block " id="Panel_Image">
+                        </div>
                         <div class="panel-footer no-color">
                             <div class="row">
                                 <div class="col-lg-4 col-xs-4 text-center">Parked</div>
@@ -82,4 +88,5 @@
             {%endif%}
         </div>
     </body>
+
 </html>

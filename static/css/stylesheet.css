@@ -15,6 +15,6 @@ td, th {
     background: white;
 }
 
-.image-panel {
-    align-content: center;
+.panel-image {
+    padding: 0px;
 }
