@@ -1,9 +1,0 @@
-policy:
-  name: policy
-  collection: accesscontextmanager.accessPolicies
-  attributes:
-    - parameter_name: accessPoliciesId
-      attribute_name: policy
-      help: |
-        The ID of the access policy.
-      property: access_context_manager/policy
